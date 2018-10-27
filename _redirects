@@ -1,4 +1,0 @@
-# redirect netlify sitename to your sitename for SEO purposes,
-# to avoid duplicate content.  Do this for http and https
-https://swimsharktech.com/* https://www.swimsharktech.com/
-http://swimsharktech.com/* https://www.swimsharktech.com/
