@@ -1,9 +1,20 @@
+// Initialize Firebase
+  // TODO: Replace with your project's customized code snippet
+  var config = {
+    apiKey: "<API_KEY>",
+    authDomain: "<PROJECT_ID>.firebaseapp.com",
+    databaseURL: "https://<DATABASE_NAME>.firebaseio.com",
+    projectId: "<PROJECT_ID>",
+    storageBucket: "<BUCKET>.appspot.com",
+    messagingSenderId: "<SENDER_ID>",
+  };
+  firebase.initializeApp(config);
+
 $(document).ready(function(){
     
     (function($) {
         "use strict";
-
-    
+	    
     jQuery.validator.addMethod('answercheck', function (value, element) {
         return this.optional(element) || /^\bcat\b$/.test(value)
     }, "type the correct answer -_-");
@@ -54,6 +65,7 @@ $(document).ready(function(){
                     minlength: "thats all? really?"
                 }
             },
+		
             submitHandler: function(form) {
                 $(form).ajaxSubmit({
                     type:"POST",
