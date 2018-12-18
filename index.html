@@ -21,7 +21,7 @@
     </head>
     <body>
         
-	    	    <h1 id="bigOne"></h1>	    
+	    	 <h1 id="bigOne"></h1>	    
 <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase.js"></script>
 <script>
   // Initialize Firebase
@@ -34,7 +34,9 @@
     messagingSenderId: "800945623334"
   };
   firebase.initializeApp(config);
-	var bigOne
+	var bigOne = document.getElementById('bigOne');
+	var dbRef = firebase.database().ref().child('Swimmer Database')
+	dbRef.on('value', snap => bigOne.innerText = snap.val())
 </script>
 
 	    
