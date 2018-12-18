@@ -84,23 +84,7 @@
         <!--================Price Area =================-->
 	    
 	   	    
-<script src="https://www.gstatic.com/firebasejs/5.7.0/firebase.js"></script>
-<script>
-  // Initialize Firebase
-	
-  var config = {
-    apiKey: "AIzaSyBp8rUhqGjaBZJX8vA_Wg6NdX47VjX8OAI",
-    authDomain: "swim-app-8518a.firebaseapp.com",
-    databaseURL: "https://swim-app-8518a.firebaseio.com",
-    projectId: "swim-app-8518a",
-    storageBucket: "swim-app-8518a.appspot.com",
-    messagingSenderId: "800945623334"
-  };
-  firebase.initializeApp(config);
-	var bigOne = document.getElementById('bigOne');
-	var dbRef = firebase.database().ref().child('text')
-	dbRef.on('value', snap => bigOne.innerText = snap.val())
-</script>
+
         <section class="price_area p_120">
         	<div class="container">
         		<div class="main_title">
@@ -252,5 +236,22 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
         <script src="vendors/counter-up/jquery.waypoints.min.js"></script>
         <script src="vendors/counter-up/jquery.counterup.min.js"></script>
         <script src="js/theme.js"></script>
+	    <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+	
+  var config = {
+    apiKey: "AIzaSyBp8rUhqGjaBZJX8vA_Wg6NdX47VjX8OAI",
+    authDomain: "swim-app-8518a.firebaseapp.com",
+    databaseURL: "https://swim-app-8518a.firebaseio.com",
+    projectId: "swim-app-8518a",
+    storageBucket: "swim-app-8518a.appspot.com",
+    messagingSenderId: "800945623334"
+  };
+  firebase.initializeApp(config);
+	var bigOne = document.getElementById('bigOne');
+	var dbRef = firebase.database().ref().child('text')
+	dbRef.on('value', snap => bigOne.innerText = snap.val())
+</script>
     </body>
 </html>
