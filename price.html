@@ -82,6 +82,24 @@
         <!--================End Home Banner Area =================-->
         
         <!--================Price Area =================-->
+	    
+	     	    
+<script src="https://www.gstatic.com/firebasejs/5.7.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBp8rUhqGjaBZJX8vA_Wg6NdX47VjX8OAI",
+    authDomain: "swim-app-8518a.firebaseapp.com",
+    databaseURL: "https://swim-app-8518a.firebaseio.com",
+    projectId: "swim-app-8518a",
+    storageBucket: "swim-app-8518a.appspot.com",
+    messagingSenderId: "800945623334"
+  };
+  firebase.initializeApp(config);
+	var bigOne = document.getElementById('bigOne');
+	var dbRef = firebase.database().ref().child('text')
+	//dbRef.on('value', snap => bigOne.innerText = snap.val())
+</script>
         <section class="price_area p_120">
         	<div class="container">
         		<div class="main_title">
@@ -92,7 +110,7 @@
         			<div class="col-lg-4">
         				<div class="price_item">
         					<div class="price_head">
-        						<h4>Real Basic</h4>
+        						<!--<h4>Real Basic</h4>--><h1 id="bigOne"></h1>
         					</div>
         					<div class="price_body">
         						<ul class="list">
