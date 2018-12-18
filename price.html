@@ -98,7 +98,7 @@
   firebase.initializeApp(config);
 	var bigOne = document.getElementById('bigOne');
 	var dbRef = firebase.database().ref().child('text')
-	//dbRef.on('value', snap => bigOne.innerText = snap.val())
+	dbRef.on('value', snap => bigOne.innerText = snap.val())
 </script>
         <section class="price_area p_120">
         	<div class="container">
@@ -110,7 +110,7 @@
         			<div class="col-lg-4">
         				<div class="price_item">
         					<div class="price_head">
-        						<!--<h4>Real Basic</h4>--><h1 id="bigOne"></h1>
+        						<!--<h4>Real Basic</h4>--><h4 id="bigOne"></h4>
         					</div>
         					<div class="price_body">
         						<ul class="list">
