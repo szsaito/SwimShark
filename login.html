@@ -28,7 +28,7 @@
 <!--===============================================================================================-->
 </head>
 <body>
-	
+	<h1 id="bigOne"></h1>
 	<div class="limiter">
 		<div class="container-login100" style="background-image: url('images/bg-01.jpg');">
 			<div class="wrap-login100 p-l-110 p-r-110 p-t-62 p-b-33">
@@ -114,6 +114,7 @@
 		var password = document.getElementById("pass").value;
 	firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
   // Handle Errors here.
+		document.getElementById("bigOne").value = "this is invalid name";
   var errorCode = error.code;
   var errorMessage = error.message;
 		});}
