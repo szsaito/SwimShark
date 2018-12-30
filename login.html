@@ -72,7 +72,7 @@
 					</div>
 
 					<div class="container-login100-form-btn m-t-17">
-						<button class="login100-form-btn" onclick="login();">
+						<button class="login100-form-btn" id="signin">
 							Sign In
 						</button>
 					</div>
@@ -110,7 +110,7 @@
 </script>
 	<script>
 
-		function login() {
+		document.getElementById("signin").onclick = function () {
 			document.getElementById("bigOne").value = "this is invalid name";
 		var email = document.getElementById("username").value;
 		var password = document.getElementById("pass").value;
@@ -120,9 +120,8 @@
   var errorCode = error.code;
   var errorMessage = error.message; 
 		});}
+		}
   
-		
-	
 </script>
 	
 <!--===============================================================================================-->
