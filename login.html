@@ -107,15 +107,26 @@
     messagingSenderId: "800945623334"
   };
   firebase.initializeApp(config);
-</script>
-	<script>
-
-		document.getElementById("signin").onclick = function () {
+	
+	document.getElementById("signin").onclick = function () {
 			document.getElementById("bigOne").value = "this is invalid name";
-		
 		}
-  
+			
 </script>
+	
+
+		
+			/*var email = document.getElementById("username").value;
+		var password = document.getElementById("pass").value;
+	firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+  // Handle Errors here.
+		
+  var errorCode = error.code;
+  var errorMessage = error.message; 
+		});}*/
+		
+		
+
 	
 <!--===============================================================================================-->
 	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
