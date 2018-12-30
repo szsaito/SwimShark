@@ -112,13 +112,7 @@
 		var email = document.getElementById("username").value;
 		var password = document.getElementById("pass").value;
 		document.getElementById("bigOne").innerHTML = email;
-		firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
-  	// Handle Errors here.
-		document.getElementById("bigOne").innerHTML = "this is invalid name";
- 	 //var errorCode = error.code;
-  	//var errorMessage = error.message; 
-		});}
-		document.getElementById("bigOne").innerHTML = "IT IS OUT";	
+		
 		}
 	
 			
