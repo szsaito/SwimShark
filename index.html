@@ -22,22 +22,7 @@
     <body>
         
 	    	 <!--<h1 id="bigOne"></h1>	-->    
-<script src="https://www.gstatic.com/firebasejs/5.7.0/firebase.js"></script>
-<script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyBp8rUhqGjaBZJX8vA_Wg6NdX47VjX8OAI",
-    authDomain: "swim-app-8518a.firebaseapp.com",
-    databaseURL: "https://swim-app-8518a.firebaseio.com",
-    projectId: "swim-app-8518a",
-    storageBucket: "swim-app-8518a.appspot.com",
-    messagingSenderId: "800945623334"
-  };
-  firebase.initializeApp(config);
-	var bigOne = document.getElementById('bigOne');
-	var dbRef = firebase.database().ref().child('text')
-	//dbRef.on('value', snap => bigOne.innerText = snap.val())
-</script>
+
 
 	    
         <!--================Header Menu Area =================-->
@@ -79,7 +64,7 @@
 								<li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
 							</ul>
 							<ul class="nav navbar-nav navbar-right">
-								<li class="nav-item"><a href="#" class="tickets_btn">Sign In</a></li>
+								<li class="nav-item"><a href="#" class="tickets_btn"" href="login.html">Sign In</a></li>
 							</ul>
 						</div> 
 					</div>
@@ -584,6 +569,23 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
         
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+		
+<script src="https://www.gstatic.com/firebasejs/5.7.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBp8rUhqGjaBZJX8vA_Wg6NdX47VjX8OAI",
+    authDomain: "swim-app-8518a.firebaseapp.com",
+    databaseURL: "https://swim-app-8518a.firebaseio.com",
+    projectId: "swim-app-8518a",
+    storageBucket: "swim-app-8518a.appspot.com",
+    messagingSenderId: "800945623334"
+  };
+  firebase.initializeApp(config);
+	var bigOne = document.getElementById('bigOne');
+	var dbRef = firebase.database().ref().child('text')
+	//dbRef.on('value', snap => bigOne.innerText = snap.val())
+</script>
         <script src="js/jquery-3.2.1.min.js"></script>
         <script src="js/popper.js"></script>
         <script src="js/bootstrap.min.js"></script>
@@ -601,5 +603,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
         <script src="js/gmaps.min.js"></script>
         <script src="js/theme.js"></script>
+		
+
     </body>
 </html>
