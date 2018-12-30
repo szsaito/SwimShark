@@ -111,8 +111,14 @@
 	document.getElementById("signin").onclick = function () {
 		var email = document.getElementById("username").value;
 		var password = document.getElementById("pass").value;
-		document.getElementById("bigOne").innerHTML = email;
-		window.alert("Error :");
+		//document.getElementById("bigOne").innerHTML = email;
+		firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+  	// Handle Errors here.
+
+ 		 var errorCode = error.code;
+  		var errorMessage = error.message; 
+			window.alert("Error :");
+		});}
 		
 	
 		}
