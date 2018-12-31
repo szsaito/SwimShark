@@ -109,8 +109,8 @@
   firebase.initializeApp(config);
 	
 	document.getElementById("signin").onclick = function () {
-		var email = document.getElementById("username").value;
-		var password = document.getElementById("pass").value;
+		var email = "vdsafdas@gmail.com"; //document.getElementById("username").value;
+		var password = "3123ldj9103"; //document.getElementById("pass").value;
 		firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
  		// Handle Errors here.
   		var errorCode = error.code;
