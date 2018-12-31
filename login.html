@@ -108,13 +108,13 @@
   };
   firebase.initializeApp(config);
 	
-	//document.getElementById("signin").onclick = function () {
+	document.getElementById("signin").onclick = function () {
 		//var email = document.getElementById("username").value;
 		//var password = document.getElementById("pass").value;
 		var bigOne = document.getElementById('bigOne');
 		var dbRef = firebase.database().ref().child('text')
 		dbRef.on('value', snap => bigOne.innerText = snap.val())
-	//}
+	}
 		
 	
 			
