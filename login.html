@@ -26,68 +26,20 @@
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 <!--===============================================================================================-->
+<!--===============================================================================================-->
+	<script src="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.js"></script>
+	<link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.css" />
+<!--===============================================================================================-->
+
 </head>
 <body>
 	<h1 id="bigOne"></h1>
+	
+
 	<div class="limiter">
 		<div class="container-login100" style="background-image: url('images/bg-01.jpg');">
-			<div class="wrap-login100 p-l-110 p-r-110 p-t-62 p-b-33">
-				<form class="login100-form validate-form flex-sb flex-w">
-					<span class="login100-form-title p-b-53">
-						Sign In With
-					</span>
-
-					<a href="#" class="btn-face m-b-20">
-						<i class="fa fa-facebook-official"></i>
-						Facebook
-					</a>
-
-					<a href="#" class="btn-google m-b-20">
-						<img src="images/icons/icon-google.png" alt="GOOGLE">
-						Google
-					</a>
-					
-					<div class="p-t-31 p-b-9">
-						<span class="txt1">
-							Username
-						</span>
-					</div>
-					<div class="wrap-input100 validate-input" data-validate = "Username is required">
-						<input class="input100" type="text" id="username" >
-						<span class="focus-input100"></span>
-					</div>
-					
-					<div class="p-t-13 p-b-9">
-						<span class="txt1">
-							Password
-						</span>
-
-						<a href="#" class="txt2 bo1 m-l-5">
-							Forgot?
-						</a>
-					</div>
-					<div class="wrap-input100 validate-input" data-validate = "Password is required">
-						<input class="input100" type="password" id="pass" >
-						<span class="focus-input100"></span>
-					</div>
-
-					<div class="container-login100-form-btn m-t-17">
-						<button class="login100-form-btn" id="signin">
-							Sign In
-						</button>
-					</div>
-
-					<div class="w-full text-center p-t-55">
-						<span class="txt2">
-							Not a member?
-						</span>
-
-						<a href="#" class="txt2 bo1">
-							Sign up now
-						</a>
-					</div>
-				</form>
-			</div>
+			<div id="firebaseui-auth-container"></div>
+			<div id="loader">Loading...</div>
 		</div>
 	</div>
 	
@@ -97,6 +49,7 @@
 	
 <script src="https://www.gstatic.com/firebasejs/5.7.2/firebase.js"></script>
 <script>
+	
 	// Initialize Firebase
 	var config = {
 		apiKey: "AIzaSyBp8rUhqGjaBZJX8vA_Wg6NdX47VjX8OAI",
@@ -108,33 +61,44 @@
 	};
 	firebase.initializeApp(config);
 
-	
+	var ui = new firebaseui.auth.AuthUI(firebase.auth());
 
-	//OnClick Function
-	document.getElementById("signin").onclick = function () {
-		console.log("Clicked Button");
-
-		var email = document.getElementById("username").value;
-		var password = document.getElementById("pass").value;
-		
-		firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
-			// Handle Errors here.
-			var errorCode = error.code;
-			var errorMessage = error.message;
-			
-		});
-
-		firebase.auth().onAuthStateChanged(function (user) {
-				if (user) {
-					// User is signed in.
-					document.cookie = user;
-					console.log(document.cookie.uid);
-					window.location.href = './profile.html';	
-				} else {
-						console.log("not signed in")
+	var uiConfig = {
+			callbacks: {
+				signInSuccessWithAuthResult: function (authResult, redirectUrl) {
+					// User successfully signed in.
+					// Return type determines whether we continue the redirect automatically
+					// or whether we leave that to developer to handle.
+					return true;
+				},
+				uiShown: function () {
+					// The widget is rendered.
+					// Hide the loader.
+					document.getElementById('loader').style.display = 'none';
 				}
-		});
-	};
+			},
+			// Will use popup for IDP Providers sign-in flow instead of the default, redirect.
+			signInFlow: 'popup',
+			signInSuccessUrl: '<url-to-redirect-to-on-success>',
+			signInOptions: [
+				// Leave the lines as is for the providers you want to offer your users.
+				firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+				firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+				firebase.auth.TwitterAuthProvider.PROVIDER_ID,
+				firebase.auth.GithubAuthProvider.PROVIDER_ID,
+				firebase.auth.EmailAuthProvider.PROVIDER_ID,
+				firebase.auth.PhoneAuthProvider.PROVIDER_ID
+			],
+			// Terms of service url.
+			tosUrl: '<your-tos-url>',
+			// Privacy policy url.
+			privacyPolicyUrl: '<your-privacy-policy-url>'
+		};
+
+		ui.start('#firebaseui-auth-container', uiConfig);
+
+
+
 </script>
 	
 
